@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
 
-export const ListaEmpleados = () => {
+export const ListEmployees = () => {
   const { employees } = useContext(EmployeesContext);
 
   return (

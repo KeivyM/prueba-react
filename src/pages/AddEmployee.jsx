@@ -27,7 +27,7 @@ const initialValue = {
   phoneNumber: '',
 };
 
-export const AgregarEmpleado = () => {
+export const AddEmployee = () => {
   const { employees, setEmployees } = useContext(EmployeesContext);
 
   const { onInputChange, onResetForm, formState } = useForm(initialValue);

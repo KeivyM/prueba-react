@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { Tarea } from "../components/Tarea";
-import { TareasContext } from "../context/TareasContext";
+import { Task } from "../components/Task";
+import { TasksContext } from "../context/TasksContext";
 
 const tare = true;
-export const ListaTareas = () => {
-  const { tareas } = useContext(TareasContext);
-  console.log(tareas);
+
+export const ListTasks = () => {
+  const { tasks } = useContext(TasksContext);
+  console.log(tasks);
+
+
 
   return (
     <div>
@@ -19,8 +22,8 @@ export const ListaTareas = () => {
               <th>Asignada</th>
             </tr>
           </thead>
-          {tareas.map((element) => (
-            <Tarea key={element.id} element={element} />
+          {tasks.map((element) => (
+            <Task key={element.id} element={element} />
           ))}
         </table>
       ) : (

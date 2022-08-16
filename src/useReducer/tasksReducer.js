@@ -3,6 +3,19 @@ export const tasksReducer = (initialState = [], action) => {
     case "ADD TASK":
       return [...initialState, action.payload];
 
+    case "EDIT TASK":
+      return initialState.map((task) => {
+        if (task.id === action.payload.id) {
+          return {
+            ...task,
+            task: action.payload.task,
+            asignada: action.payload.asignada,
+            done: false,
+          }
+        }
+        return task
+      });
+    
     case "REMOVE TASK":
       return initialState.filter((task) => task.id !== action.payload);
 

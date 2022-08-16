@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
-import { TareasContext } from "../context/TareasContext";
+import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
 
 const styles = {
@@ -23,25 +23,27 @@ const styles = {
 };
 
 const initialValue = {
-  task: "",
+  task: '',
   employee:''
 };
 
 
-export const AgregarTarea = () => {
-  const { tareas, sestTareas } = useContext(TareasContext);
+export const AddTask = () => {
+  const { tasks, onAddTask } = useContext(TasksContext);
+
   const { employees } = useContext(EmployeesContext);
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
   
-  const mostrar = (e) => {
+  const Add = (e) => {
     e.preventDefault();
-    console.log(formState);
-    onResetForm()
+    onAddTask({ ...formState, id: new Date().getTime(), done:false });
+
+    onResetForm();
   };
 
   return (
     <div>
-      <form style={styles.form} onSubmit={mostrar}>
+      <form style={styles.form} onSubmit={ Add }>
         <input
           style={styles.inputs}
           type="text"
@@ -67,12 +69,3 @@ export const AgregarTarea = () => {
     </div>
   );
 };
-
-{
-  /* <input
-          style={styles.inputs}
-          type="text"
-          placeholder="Asignar a..."
-          required
-        /> */
-}
