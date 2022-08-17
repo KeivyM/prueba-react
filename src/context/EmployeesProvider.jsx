@@ -6,11 +6,13 @@ const initialEmployees = [
     name: "Julio",
     years: 24,
     phoneNumber: 555555,
+    label:'Julio'
   },
   {
     name: "Daniel",
     years: 20,
     phoneNumber: 555555,
+    label:'Daniel'
   },
 ];
 

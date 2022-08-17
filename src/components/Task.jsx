@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Checkbox } from "@mui/material";
-import "./tarea.css";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
-// import {ModalEdit} from "./ModalEdit";
+import "./Task.css";
 
 export const Task = ({ element }) => {
   const { onDeleteTask, onToggleTask, onEditTask } = useContext(TasksContext);
-  const { formState, onInputChange, onResetForm } = useForm(element);
+  const { formState, onInputChange } = useForm(element);
 
   const [modal, setModal] = useState(false);
 
@@ -45,7 +44,7 @@ export const Task = ({ element }) => {
                 />
               </form>
             </td>
-            <td>{element.asignada}</td>
+            <td>{element.assigned}</td>
             <td>
               <Button variant="contained" onClick={ EditTask } >
                 Save
@@ -58,7 +57,7 @@ export const Task = ({ element }) => {
               {element.task}
             </td>
             <td className={`${element.done ? "through" : " "}`}>
-              {element.asignada}
+              {element.assigned}
             </td>
             <td>
               <Button variant="contained" onClick={() => setModal(!modal)}>
@@ -74,8 +73,6 @@ export const Task = ({ element }) => {
           </Button>
         </td>
       </tr>
-
-      {/* {modal && <ModalEdit />} */}
     </tbody>
   );
 };

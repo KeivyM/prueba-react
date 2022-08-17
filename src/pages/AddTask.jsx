@@ -30,15 +30,20 @@ const initialValue = {
 
 
 export const AddTask = () => {
-  const { tasks, onAddTask } = useContext(TasksContext);
-  const { employees } = useContext(EmployeesContext);
+  const { onAddTask } = useContext(TasksContext);
+  // const { employees } = useContext(EmployeesContext);
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
   const [employeeSelected, setEmployeeSelected] = useState('')
   
   const Add = (e) => {
     e.preventDefault();
     if (employeeSelected.length <= 1) return;
-    onAddTask({ ...formState, id: new Date().getTime(), done:false, asignada:employeeSelected});
+    onAddTask({
+      ...formState,
+      id: new Date().getTime(),
+      done: false,
+      assigned: employeeSelected,
+    });
 
     onResetForm();
     setEmployeeSelected('');

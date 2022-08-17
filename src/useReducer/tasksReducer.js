@@ -13,7 +13,7 @@ export const tasksReducer = (initialState = [], action) => {
           return {
             ...task,
             task: action.payload.task,
-            asignada: action.payload.asignada,
+            assigned: action.payload.assigned,
             done: false,
           };
         }

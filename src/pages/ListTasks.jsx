@@ -1,19 +1,18 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { LinkAddTask } from "../components/LinkAddTask";
 import { Task } from "../components/Task";
 import { TasksContext } from "../context/TasksContext";
-
-const tare = true;
+import "./ListTasks.css";
 
 export const ListTasks = () => {
   const { tasks } = useContext(TasksContext);
-  console.log(tasks);
-
-
 
   return (
-    <div>
-      {tare ? (
+    <div className="container-ListTasks">
+      {tasks.length < 1 ? (
+        <LinkAddTask />
+      ) : (
         <table>
           <thead>
             <tr>
@@ -26,11 +25,6 @@ export const ListTasks = () => {
             <Task key={element.id} element={element} />
           ))}
         </table>
-      ) : (
-        <h3>
-          Aún no hay tareas presiona <NavLink to="/agregarTarea">aqui</NavLink>{" "}
-          para agregar
-        </h3>
       )}
     </div>
   );

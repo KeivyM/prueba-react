@@ -7,13 +7,13 @@ export const TasksProvider = ({ children }) => {
     {
       id: 1,
       task: "lavar",
-      asignada: "raul",
+      assigned: "raul",
       done: false,
     },
     {
       id: 2,
       task: "compras",
-      asignada: "marta",
+      assigned: "marta",
       done: true,
     },
   ];
