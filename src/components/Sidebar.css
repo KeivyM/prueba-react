@@ -1,7 +1,26 @@
+.container-sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  background-color: rgb(157, 157, 157);
+  height: 100vh;
+  float: left;
+  text-align: center;
+  font-family: sans-serif;
+}
+
 a{
   text-decoration: none;
   color: black;
-  background-color: rgb(88, 88, 148);
-  padding: 10px;
-  
+  padding: 15px;
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: rgb(211, 211, 255);
+  margin: 5px;
+}
+
+a:hover{
+  background-color: rgb(123, 122, 122);
 }

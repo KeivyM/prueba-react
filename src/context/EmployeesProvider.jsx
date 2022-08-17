@@ -3,13 +3,13 @@ import { EmployeesContext } from "./EmployeesContext";
 
 const initialEmployees = [
   {
-    name: "Daniel",
-    years: 20,
+    name: "Julio",
+    years: 24,
     phoneNumber: 555555,
   },
   {
-    name: "Julio",
-    years: 24,
+    name: "Daniel",
+    years: 20,
     phoneNumber: 555555,
   },
 ];

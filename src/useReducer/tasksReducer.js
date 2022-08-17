@@ -1,25 +1,29 @@
+import { TYPES } from "./tasksActions";
+
 export const tasksReducer = (initialState = [], action) => {
   switch (action.type) {
-    case "ADD TASK":
+    case TYPES.addTask:
       return [...initialState, action.payload];
 
-    case "EDIT TASK":
+    case TYPES.editTask:
       return initialState.map((task) => {
         if (task.id === action.payload.id) {
+          // console.log(task);
+          // console.log(action.payload);
           return {
             ...task,
             task: action.payload.task,
             asignada: action.payload.asignada,
             done: false,
-          }
+          };
         }
-        return task
+        return task;
       });
-    
-    case "REMOVE TASK":
+
+    case TYPES.removeTask:
       return initialState.filter((task) => task.id !== action.payload);
 
-    case "TOGGLE TASK":
+    case TYPES.toggleTask:
       return initialState.map((task) => {
         if (task.id === action.payload) {
           return {

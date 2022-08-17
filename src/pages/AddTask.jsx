@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { SearchEmployees } from "../components/SearchEmployees";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
@@ -30,20 +31,22 @@ const initialValue = {
 
 export const AddTask = () => {
   const { tasks, onAddTask } = useContext(TasksContext);
-
   const { employees } = useContext(EmployeesContext);
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
+  const [employeeSelected, setEmployeeSelected] = useState('')
   
   const Add = (e) => {
     e.preventDefault();
-    onAddTask({ ...formState, id: new Date().getTime(), done:false });
+    if (employeeSelected.length <= 1) return;
+    onAddTask({ ...formState, id: new Date().getTime(), done:false, asignada:employeeSelected});
 
     onResetForm();
+    setEmployeeSelected('');
   };
 
   return (
     <div>
-      <form style={styles.form} onSubmit={ Add }>
+      <form style={styles.form} onSubmit={Add}>
         <input
           style={styles.inputs}
           type="text"
@@ -55,17 +58,12 @@ export const AddTask = () => {
         />
         <label htmlFor="employees">Select an Employee:</label>
 
-        <select name="employee" id="employee" style={styles.inputs} onChange={ onInputChange }>
-          {employees.map((employee) => (
-            <option key={employee.name} value={employee.name}>
-              {employee.name}
-            </option>
-          ))}
-        </select>
+        <h2 style={{background:'white',width:'200px'}}>{employeeSelected}</h2>
         <button style={styles.button} type="submit">
           Add
         </button>
       </form>
+      <SearchEmployees setEmployeeSelected={setEmployeeSelected} />
     </div>
   );
 };

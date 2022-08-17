@@ -1,9 +1,9 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { tasksReducer } from "../useReducer/tasksReducer";
 import { TasksContext } from "./TasksContext";
 
 export const TasksProvider = ({ children }) => {
-  const tareasIniciales = [
+  const initialTasks = [
     {
       id: 1,
       task: "lavar",
@@ -17,7 +17,7 @@ export const TasksProvider = ({ children }) => {
       done: true,
     },
   ];
-  const [tasks, dispatch] = useReducer(tasksReducer, tareasIniciales);
+  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   const onAddTask = (task) => {
     const action = {
@@ -27,7 +27,8 @@ export const TasksProvider = ({ children }) => {
     dispatch(action);
   };
 
-    const onEditTask = (task) => {
+  const onEditTask = (task) => {
+      // console.log('editando')
       const action = {
         type: "EDIT TASK",
         payload: task,
@@ -51,14 +52,10 @@ export const TasksProvider = ({ children }) => {
     dispatch(action);
   };
 
-  const [task, setTasks] = useState(tareasIniciales);
-
-  console.log(tasks); //es un array
   return (
     <TasksContext.Provider
       value={{
         tasks,
-        setTasks,
         onAddTask,
         onDeleteTask,
         onToggleTask,

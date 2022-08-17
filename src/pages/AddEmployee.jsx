@@ -1,38 +1,17 @@
 import React, { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { useForm } from "../hooks/useForm";
-
-const styles = {
-  form: {
-    backgroundColor: "purple",
-    display: "flex",
-    flexDirection: "column",
-    padding: "30px",
-    gap: "10px",
-  },
-  inputs: {
-    height: "35px",
-    padding: "0 10px",
-  },
-  button: {
-    height: "35px",
-    width: "200px",
-    margin: "0 auto",
-  },
-};
+import "./AddEmployee.css";
 
 const initialValue = {
-  name: '',
-  years: '',
-  phoneNumber: '',
+  name: "",
+  years: "",
+  phoneNumber: "",
 };
 
 export const AddEmployee = () => {
   const { employees, setEmployees } = useContext(EmployeesContext);
-
   const { onInputChange, onResetForm, formState } = useForm(initialValue);
-
-  // console.log(formState);
 
   const validarEmpleado = (e) => {
     e.preventDefault();
@@ -43,9 +22,9 @@ export const AddEmployee = () => {
   };
 
   return (
-    <form style={styles.form} onSubmit={validarEmpleado}>
+    <form className="formAddTask" onSubmit={validarEmpleado}>
       <input
-        style={styles.inputs}
+        className="inputAddTask"
         type="text"
         placeholder="Name"
         name="name"
@@ -54,7 +33,7 @@ export const AddEmployee = () => {
         required
       />
       <input
-        style={styles.inputs}
+        className="inputAddTask"
         type="number"
         placeholder="Years"
         name="years"
@@ -63,7 +42,7 @@ export const AddEmployee = () => {
         required
       />
       <input
-        style={styles.inputs}
+        className="inputAddTask"
         type="number"
         placeholder="Phone number"
         name="phoneNumber"
@@ -71,9 +50,7 @@ export const AddEmployee = () => {
         onChange={onInputChange}
         required
       />
-      <button style={styles.button} type="submit">
-        Add
-      </button>
+      <button className="buttonAddTask" type="submit">Add</button>
     </form>
   );
 };
