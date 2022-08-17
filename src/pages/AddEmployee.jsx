@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { useForm } from "../hooks/useForm";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./AddEmployee.css";
 
 const initialValue = {
@@ -12,9 +13,11 @@ const initialValue = {
 export const AddEmployee = () => {
   const { employees, setEmployees } = useContext(EmployeesContext);
   const { onInputChange, onResetForm, formState } = useForm(initialValue);
+  // const [employees, setEmployees] = useLocalStorage('employees',)
 
   const validarEmpleado = (e) => {
     e.preventDefault();
+
     if (formState.name && formState.years && formState.phoneNumber) {
       setEmployees([...employees, formState]);
       onResetForm();
@@ -50,7 +53,9 @@ export const AddEmployee = () => {
         onChange={onInputChange}
         required
       />
-      <button className="buttonAddTask" type="submit">Add</button>
+      <button className="buttonAddTask" type="submit">
+        Add
+      </button>
     </form>
   );
 };

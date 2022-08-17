@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import { EmployeesContext } from "./EmployeesContext";
 
 const initialEmployees = [
@@ -6,18 +7,20 @@ const initialEmployees = [
     name: "Julio",
     years: 24,
     phoneNumber: 555555,
-    label:'Julio'
+    label: "Julio",
   },
   {
     name: "Daniel",
     years: 20,
     phoneNumber: 555555,
-    label:'Daniel'
+    label: "Daniel",
   },
 ];
 
 export const EmployeesProvider = ({ children }) => {
-  const [employees, setEmployees] = useState(initialEmployees);
+  const [employees, setEmployees] = useLocalStorage("employees", []);
+
+  console.log(employees);
 
   return (
     <>

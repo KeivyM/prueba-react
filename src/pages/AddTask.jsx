@@ -1,40 +1,38 @@
 import { useContext, useState } from "react";
-import { SearchEmployees } from "../components/SearchEmployees";
-import { EmployeesContext } from "../context/EmployeesContext";
+import { SelectEmployee } from "../components/SelectEmployee";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
+import "./AddTask.css";
 
 const styles = {
   form: {
-    backgroundColor: "purple",
-    display: "flex",
-    flexDirection: "column",
-    padding: "30px",
-    gap: "10px",
+    // backgroundColor: "purple",
+    // display: "flex",
+    // flexDirection: "column",
+    // padding: "30px",
+    // gap: "10px",
   },
   inputs: {
-    height: "35px",
-    padding: "0 10px",
+    // height: "35px",
+    // padding: "0 10px",
   },
   button: {
-    height: "35px",
-    width: "200px",
-    margin: "0 auto",
+    // height: "35px",
+    // width: "200px",
+    // margin: "0 auto",
   },
 };
 
 const initialValue = {
-  task: '',
-  employee:''
+  task: "",
+  employee: "",
 };
-
 
 export const AddTask = () => {
   const { onAddTask } = useContext(TasksContext);
-  // const { employees } = useContext(EmployeesContext);
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
-  const [employeeSelected, setEmployeeSelected] = useState('')
-  
+  const [employeeSelected, setEmployeeSelected] = useState("");
+
   const Add = (e) => {
     e.preventDefault();
     if (employeeSelected.length <= 1) return;
@@ -46,14 +44,14 @@ export const AddTask = () => {
     });
 
     onResetForm();
-    setEmployeeSelected('');
+    setEmployeeSelected("");
   };
 
   return (
-    <div>
-      <form style={styles.form} onSubmit={Add}>
+    <div className="container-addTask">
+      <form className="form-addTask" onSubmit={Add}>
         <input
-          style={styles.inputs}
+          className="input-form-addTask"
           type="text"
           placeholder="Task"
           name="task"
@@ -61,14 +59,22 @@ export const AddTask = () => {
           onChange={onInputChange}
           required
         />
-        <label htmlFor="employees">Select an Employee:</label>
-
-        <h2 style={{background:'white',width:'200px'}}>{employeeSelected}</h2>
-        <button style={styles.button} type="submit">
+        {/* <div></div> */}
+        <h2
+          className="container-userSelected"
+          style={{ background: "white", width: "200px" }}
+        >
+          {employeeSelected}
+        </h2>
+        <button
+          className="button-form-addTask"
+          style={styles.button}
+          type="submit"
+        >
           Add
         </button>
       </form>
-      <SearchEmployees setEmployeeSelected={setEmployeeSelected} />
+      <SelectEmployee setEmployeeSelected={setEmployeeSelected} />
     </div>
   );
 };

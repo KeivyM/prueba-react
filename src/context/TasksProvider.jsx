@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import { tasksReducer } from "../useReducer/tasksReducer";
 import { TasksContext } from "./TasksContext";
 
@@ -18,6 +19,8 @@ export const TasksProvider = ({ children }) => {
     },
   ];
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  // const [tasks, setEmployees] = useLocalStorage("tasks", []);
+console.log(tasks)
 
   const onAddTask = (task) => {
     const action = {

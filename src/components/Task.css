@@ -1,3 +1,19 @@
 .through{
   text-decoration: line-through;
+  color: rgb(0, 0, 0);
+}
+
+.container-task {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(249, 226, 226);
+  width: 95%;
+  border-radius: 10px;
+  font-size: 17px;
+  color: rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 1px .3px rgb(0, 0, 0);
+  margin: 0 auto;
 }

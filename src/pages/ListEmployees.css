@@ -1,0 +1,22 @@
+.ul-listEmployees{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(148, 148, 148);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 78%;
+  margin: 0 auto;
+  overflow: auto;
+  width: 600px;
+}
+
+.li-listEmployees{
+  list-style-type: none;
+  background-color: bisque;
+  margin: 5px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  width: 90%;
+  cursor: pointer;
+}

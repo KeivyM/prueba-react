@@ -13,14 +13,20 @@
 a{
   text-decoration: none;
   color: black;
-  padding: 15px;
-  width: 90%;
+  padding: 14px;
+  width: 70%;
   box-sizing: border-box;
   border-radius: 30px;
-  background-color: rgb(211, 211, 255);
+  background: rgb(211, 211, 255);
   margin: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.895);
+  transition: background .2s;
 }
 
 a:hover{
-  background-color: rgb(123, 122, 122);
+  background: rgb(123, 122, 122);
+}
+a:active{
+  box-shadow: inset -1px -1px 1px  rgb(86, 86, 86);
+
 }
