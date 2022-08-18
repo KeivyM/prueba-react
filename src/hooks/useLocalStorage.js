@@ -1,27 +1,7 @@
 import { useEffect, useState } from "react";
 
-const initialEmployees = [
-  {
-    name: "Julio",
-    years: 24,
-    phoneNumber: 555555,
-    label: "Julio",
-  },
-  {
-    name: "Daniel",
-    years: 20,
-    phoneNumber: 555555,
-    label: "Daniel",
-  },
-];
-
 export const useLocalStorage = (key, values) => {
   const [state, setState] = useState([]);
-
-  // const setDataLocalStorage = (key, values) => {
-  //   const dataStringify = JSON.stringify(values);
-  //   localStorage.setItem(key, dataStringify);
-  // };
 
   const setStorage = (newState) => {
     const dataStringify = JSON.stringify(newState);
@@ -29,7 +9,7 @@ export const useLocalStorage = (key, values) => {
     setState(newState);
   };
 
-  const getDataLocalStorage = (key) => {
+  const getStorage = (key) => {
     const data = localStorage.getItem(key);
     const dataParse = JSON.parse(data);
     setState(dataParse);
@@ -37,7 +17,7 @@ export const useLocalStorage = (key, values) => {
 
   useEffect(() => {
     if (localStorage.getItem(key)) {
-      getDataLocalStorage(key);
+      getStorage(key);
     } else {
       setStorage(values);
     }

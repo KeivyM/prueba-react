@@ -1,14 +1,46 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Button, Checkbox } from "@mui/material";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
 import "./Task.css";
+import { tasksReducer } from "../useReducer/tasksReducer";
 
 export const Task = ({ element }) => {
-  const { onDeleteTask, onToggleTask, onEditTask } = useContext(TasksContext);
+  const { tasksLocal, setTasksLocal } = useContext(TasksContext);
+  const [tasks, dispatch] = useReducer(tasksReducer, tasksLocal);
+
   const { formState, onInputChange } = useForm(element);
 
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    setTasksLocal(tasks);
+  }, [tasks]);
+
+  const onEditTask = (task) => {
+    console.log(tasks);
+    const action = {
+      type: "EDIT TASK",
+      payload: task,
+    };
+    dispatch(action);
+  };
+
+  const onDeleteTask = (task) => {
+    const action = {
+      type: "REMOVE TASK",
+      payload: task,
+    };
+    dispatch(action);
+  };
+
+  const onToggleTask = (task) => {
+    const action = {
+      type: "TOGGLE TASK",
+      payload: task,
+    };
+    dispatch(action);
+  };
 
   const DeleteTask = () => {
     onDeleteTask(element.id);
@@ -17,7 +49,7 @@ export const Task = ({ element }) => {
   const EditTask = (e) => {
     e.preventDefault();
     onEditTask(formState);
-    setModal(!modal)
+    setModal(!modal);
   };
 
   const ToggleTask = () => {

@@ -1,5 +1,6 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { TYPES } from "../useReducer/tasksActions";
 import { tasksReducer } from "../useReducer/tasksReducer";
 import { TasksContext } from "./TasksContext";
 
@@ -18,51 +19,61 @@ export const TasksProvider = ({ children }) => {
       done: true,
     },
   ];
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
-  // const [tasks, setEmployees] = useLocalStorage("tasks", []);
-console.log(tasks)
 
-  const onAddTask = (task) => {
-    const action = {
-      type: "ADD TASK",
-      payload: task,
-    };
-    dispatch(action);
-  };
+  const [tasksLocal, setTasksLocal] = useLocalStorage("tasks", []);
 
-  const onEditTask = (task) => {
-      // console.log('editando')
-      const action = {
-        type: "EDIT TASK",
-        payload: task,
-      };
-      dispatch(action);
-    };
 
-  const onDeleteTask = (task) => {
-    const action = {
-      type: "REMOVE TASK",
-      payload: task,
-    };
-    dispatch(action);
-  };
+  // const [tasks, dispatch] = useReducer(tasksReducer, tasksLocal);
 
-  const onToggleTask = (task) => {
-    const action = {
-      type: "TOGGLE TASK",
-      payload: task,
-    };
-    dispatch(action);
-  };
+  // console.log(tasks);
+  // console.log(tasksLocal);
+
+  // useEffect(() => {
+  //   setTasksLocal(tasks);
+  // }, [tasks]);
+
+  // const onAddTask = (task) => {
+  //   const action = {
+  //     type: TYPES.addTask,
+  //     payload: task,
+  //   };
+  //   dispatch(action);
+  // };
+
+  // const onEditTask = (task) => {
+  //   console.log(tasks);
+  //   const action = {
+  //     type: "EDIT TASK",
+  //     payload: task,
+  //   };
+  //   dispatch(action);
+  // };
+
+  // const onDeleteTask = (task) => {
+  //   const action = {
+  //     type: "REMOVE TASK",
+  //     payload: task,
+  //   };
+  //   dispatch(action);
+  // };
+
+  // const onToggleTask = (task) => {
+  //   const action = {
+  //     type: "TOGGLE TASK",
+  //     payload: task,
+  //   };
+  //   dispatch(action);
+  // };
 
   return (
     <TasksContext.Provider
       value={{
-        tasks,
-        onAddTask,
-        onDeleteTask,
-        onToggleTask,
-        onEditTask,
+        // tasks,
+        tasksLocal,
+        // onDeleteTask,
+        // onToggleTask,
+        // onEditTask,
+        setTasksLocal,
       }}
     >
       {children}
