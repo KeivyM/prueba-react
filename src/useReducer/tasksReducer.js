@@ -1,7 +1,8 @@
 import { TYPES } from "./tasksActions";
 
 export const tasksReducer = (initialState = [], action) => {
-  
+  console.log(initialState);
+  console.log(action);
   switch (action.type) {
     case TYPES.addTask:
       return [...initialState, action.payload];
@@ -9,8 +10,6 @@ export const tasksReducer = (initialState = [], action) => {
     case TYPES.editTask:
       return initialState.map((task) => {
         if (task.id === action.payload.id) {
-          // console.log(task);
-          // console.log(action.payload);
           return {
             ...task,
             task: action.payload.task,

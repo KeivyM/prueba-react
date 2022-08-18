@@ -3,46 +3,27 @@ import { SelectEmployee } from "../components/SelectEmployee";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
 import { TYPES } from "../useReducer/tasksActions";
-import { tasksReducer } from "../useReducer/tasksReducer";
 import "./AddTask.css";
-
-const styles = {
-  form: {
-    // backgroundColor: "purple",
-    // display: "flex",
-    // flexDirection: "column",
-    // padding: "30px",
-    // gap: "10px",
-  },
-  inputs: {
-    // height: "35px",
-    // padding: "0 10px",
-  },
-  button: {
-    // height: "35px",
-    // width: "200px",
-    // margin: "0 auto",
-  },
-};
 
 const initialValue = {
   task: "",
-  employee: "",
+  id: "",
+  done: "",
+  assigned: "",
 };
 
 export const AddTask = () => {
-  const { tasksLocal, setTasksLocal } = useContext(TasksContext);
-  const [tasks, dispatch] = useReducer(tasksReducer, tasksLocal);
-  // console.log(tasksLocal)
-  // console.log(tasks);
+  const { dispatch } = useContext(TasksContext);
+  // console.log(tasks)
 
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
   const [employeeSelected, setEmployeeSelected] = useState("");
 
-  useEffect(() => {
-    setTasksLocal(tasks);
-    // console.log(tasks);
-  }, [tasks]);
+  // useEffect(() => {
+  //   setTasksLocal(tasks)
+  //   console.log(tasks)
+  // },[])
+  
 
   const onAddTask = (task) => {
     const action = {
@@ -50,6 +31,10 @@ export const AddTask = () => {
       payload: task,
     };
     dispatch(action);
+    // console.log(tasks);
+    // setTasksLocal(tasks);
+    // setTasksLocal(tasks);
+
   };
 
   const Add = (e) => {
@@ -78,18 +63,13 @@ export const AddTask = () => {
           onChange={onInputChange}
           required
         />
-        {/* <div></div> */}
         <h2
           className="container-userSelected"
           style={{ background: "white", width: "200px" }}
         >
           {employeeSelected}
         </h2>
-        <button
-          className="button-form-addTask"
-          style={styles.button}
-          type="submit"
-        >
+        <button className="button-form-addTask" type="submit">
           Add
         </button>
       </form>

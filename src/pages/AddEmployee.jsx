@@ -13,7 +13,6 @@ const initialValue = {
 export const AddEmployee = () => {
   const { employees, setEmployees } = useContext(EmployeesContext);
   const { onInputChange, onResetForm, formState } = useForm(initialValue);
-  // const [employees, setEmployees] = useLocalStorage('employees',)
 
   const validarEmpleado = (e) => {
     e.preventDefault();
