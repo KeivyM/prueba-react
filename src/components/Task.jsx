@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Button, Checkbox } from "@mui/material";
 // import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
-import { TYPES } from "../useReducer/tasksActions";
 import "./Task.css";
 // import { tasksReducer } from "../useReducer/tasksReducer";
 import { ReducerContext } from "../context/ReducerContext";
@@ -11,44 +10,29 @@ export const Task = ({ element }) => {
   // const { setTasksLocal } = useContext(TasksContext);
   const { dispatch } = useContext(ReducerContext);
 
-export const Task = ({ element }) => {
-  // const { setTasksLocal } = useContext(TasksContext);
-  const { dispatch } = useContext(ReducerContext);
-
   const { formState, onInputChange } = useForm(element);
-  const [modal, setModal] = useState(false);
 
+  const [modal, setModal] = useState(false);
 
   const onEditTask = (task) => {
     const action = {
-      type: TYPES.editTask,
+      type: "EDIT TASK",
       payload: task,
     };
     dispatch(action);
-    // setTasksLocal(tasks);
   };
-
-  // const onDeleteTask = () => {
-  //   const action = {
-  //     type: TYPES.removeTask,
-  //     payload: element.id,
-  //   };
-  //   dispatch(action);
-  // };
 
   const onDeleteTask = (task) => {
     const action = {
-      type: TYPES.removeTask,
+      type: "REMOVE TASK",
       payload: task,
     };
     dispatch(action);
-    // console.log(tasks);
-    // console.log(tasksLocal);
   };
 
   const onToggleTask = (task) => {
     const action = {
-      type: TYPES.toggleTask,
+      type: "TOGGLE TASK",
       payload: task,
     };
     dispatch(action);
@@ -56,9 +40,6 @@ export const Task = ({ element }) => {
 
   const DeleteTask = () => {
     onDeleteTask(element.id);
-    // setTasksLocal(tasks);
-
-    // console.log(tasksLocal);
   };
 
   const EditTask = (e) => {
@@ -69,7 +50,6 @@ export const Task = ({ element }) => {
 
   const ToggleTask = () => {
     onToggleTask(element.id);
-    // setTasksLocal(tasks);
   };
 
   return (
