@@ -2,7 +2,9 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { EmployeesContext } from "./EmployeesContext";
 
 export const EmployeesProvider = ({ children }) => {
-  const [employees, setEmployees] = useLocalStorage("employees", []);
+  const [employees, setEmployees] = useLocalStorage("employees");
+  console.log(employees);
+
 
   return (
     <>
