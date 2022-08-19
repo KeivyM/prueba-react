@@ -5,11 +5,9 @@ import { TasksContext } from "./TasksContext";
 
 export const ReducerProvider = ({ children }) => {
   const { tasksLocal, setTasksLocal } = useContext(TasksContext);
-
   const [tasks, dispatch] = useReducer(tasksReducer, tasksLocal);
 
   useEffect(() => {
-    // console.log("useEffect provider")
     setTasksLocal(tasks);
   }, [tasks]);
 

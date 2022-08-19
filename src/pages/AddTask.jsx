@@ -1,7 +1,6 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useState } from "react";
 import { SelectEmployee } from "../components/SelectEmployee";
 import { ReducerContext } from "../context/ReducerContext";
-import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
 import { TYPES } from "../useReducer/tasksActions";
 import "./AddTask.css";
@@ -14,20 +13,9 @@ const initialValue = {
 };
 
 export const AddTask = () => {
-  // const { tasksLocal, setTasksLocal } = useContext(TasksContext);
-  const { tasks, dispatch } = useContext(ReducerContext);
-
-  // const [] = useReducer(tasksReducer, tasksLocal);
-  // console.log(tasksLocal)
-  // console.log(tasks);
-
+  const { dispatch } = useContext(ReducerContext);
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
   const [employeeSelected, setEmployeeSelected] = useState("");
-
-  // useEffect(() => {
-  //   setTasksLocal(tasks);
-  //   // console.log(tasks);
-  // }, [tasks]);
 
   const onAddTask = (task) => {
     const action = {
@@ -35,10 +23,6 @@ export const AddTask = () => {
       payload: task,
     };
     dispatch(action);
-    // console.log(tasks);
-    // setTasksLocal(tasks);
-    // setTasksLocal(tasks);
-
   };
 
   const Add = (e) => {

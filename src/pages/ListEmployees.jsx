@@ -1,17 +1,29 @@
 import { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
-import './ListEmployees.css';
+import { ListMaterialUI } from "../components/ListMaterialUI";
+import "./ListEmployees.css";
 
-export const ListEmployees = () => {
+const columns = [
+  { id: "name", label: "Name", minWidth: 100, align:'center'  },
+  {
+    id: "years",
+    label: "Years",
+    minWidth: 10,
+    align: "center",
+  },
+  {
+    id: "phoneNumber",
+    label: "Phone Number",
+    minWidth: 90,
+    align: "center",
+  },
+];
+
+export function ListEmployees() {
   const { employees } = useContext(EmployeesContext);
-
   return (
-    <ul className="ul-listEmployees">
-      {employees.map((employee) => (
-        <li className="li-listEmployees" key={employee.name}>
-          {employee.name}
-        </li>
-      ))}
-    </ul>
+    <div className="container-ListEmployees">
+      <ListMaterialUI columns={columns} data={employees} />
+    </div>
   );
-};
+}

@@ -1,11 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { TasksContext } from "../context/TasksContext";
 import { LinkAddTask } from "../components/LinkAddTask";
 import { Task } from "../components/Task";
 import "./ListTasks.css";
 
 export const ListTasks = () => {
-  // setTasksLocal(tasks);
   const { tasksLocal } = useContext(TasksContext);
 
   return (

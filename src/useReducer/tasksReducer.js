@@ -1,8 +1,7 @@
 import { TYPES } from "./tasksActions";
 
 export const tasksReducer = (initialState = [], action) => {
-  console.log(initialState);
-  console.log(action);
+  
   switch (action.type) {
     case TYPES.addTask:
       return [...initialState, action.payload];

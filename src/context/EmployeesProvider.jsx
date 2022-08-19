@@ -3,8 +3,6 @@ import { EmployeesContext } from "./EmployeesContext";
 
 export const EmployeesProvider = ({ children }) => {
   const [employees, setEmployees] = useLocalStorage("employees");
-  console.log(employees);
-
 
   return (
     <>

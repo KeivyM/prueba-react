@@ -1,17 +1,12 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Checkbox } from "@mui/material";
-// import { TasksContext } from "../context/TasksContext";
+import { ReducerContext } from "../context/ReducerContext";
 import { useForm } from "../hooks/useForm";
 import "./Task.css";
-// import { tasksReducer } from "../useReducer/tasksReducer";
-import { ReducerContext } from "../context/ReducerContext";
 
 export const Task = ({ element }) => {
-  // const { setTasksLocal } = useContext(TasksContext);
   const { dispatch } = useContext(ReducerContext);
-
   const { formState, onInputChange } = useForm(element);
-
   const [modal, setModal] = useState(false);
 
   const onEditTask = (task) => {

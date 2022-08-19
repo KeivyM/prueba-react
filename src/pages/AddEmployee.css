@@ -8,7 +8,8 @@
   margin: 0px auto;
   align-items: center;
   border-radius: 15px;
-  padding-top: 120px;
+  padding-top: 70px;
+  box-shadow: inset 0px 0px 10px rgba(46, 46, 46, 0.832), -5px 5px 10px rgb(0, 0, 0);
 }
 
 .inputAddTask{
@@ -34,4 +35,18 @@
 }
 .buttonAddTask:hover{
 background-color: rgb(113, 113, 113);
+}
+
+@media screen and (max-width: 400px) {
+  .formAddTask{
+    gap: 13px;
+    width: 20vw;
+    /* font-size: ; */
+  }
+.inputAddTask{
+  max-width: 150px;
+  padding: 5px 15px;
+  text-align: center;
+}
+
 }

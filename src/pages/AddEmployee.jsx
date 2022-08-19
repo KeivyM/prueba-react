@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { useForm } from "../hooks/useForm";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./AddEmployee.css";
 
 const initialValue = {
