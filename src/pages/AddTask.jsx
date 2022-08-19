@@ -1,5 +1,6 @@
 import { useContext, useEffect, useReducer, useState } from "react";
 import { SelectEmployee } from "../components/SelectEmployee";
+import { ReducerContext } from "../context/ReducerContext";
 import { TasksContext } from "../context/TasksContext";
 import { useForm } from "../hooks/useForm";
 import { TYPES } from "../useReducer/tasksActions";
@@ -13,17 +14,20 @@ const initialValue = {
 };
 
 export const AddTask = () => {
-  const { dispatch } = useContext(TasksContext);
-  // console.log(tasks)
+  // const { tasksLocal, setTasksLocal } = useContext(TasksContext);
+  const { tasks, dispatch } = useContext(ReducerContext);
+
+  // const [] = useReducer(tasksReducer, tasksLocal);
+  // console.log(tasksLocal)
+  // console.log(tasks);
 
   const { formState, onInputChange, onResetForm } = useForm(initialValue);
   const [employeeSelected, setEmployeeSelected] = useState("");
 
   // useEffect(() => {
-  //   setTasksLocal(tasks)
-  //   console.log(tasks)
-  // },[])
-  
+  //   setTasksLocal(tasks);
+  //   // console.log(tasks);
+  // }, [tasks]);
 
   const onAddTask = (task) => {
     const action = {
