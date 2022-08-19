@@ -14,7 +14,6 @@ export const Task = ({ element }) => {
 export const Task = ({ element }) => {
   // const { setTasksLocal } = useContext(TasksContext);
   const { dispatch } = useContext(ReducerContext);
->>>>>>> fix
 
   const { formState, onInputChange } = useForm(element);
   const [modal, setModal] = useState(false);
