@@ -4,8 +4,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { EmployeesContext } from "../context/EmployeesContext";
 
 export function ComboBox() {
-  const { employees } = React.useContext(EmployeesContext)
-  console.log(employees)
+  const { employees } = React.useContext(EmployeesContext);
   return (
     <Autocomplete
       disablePortal
@@ -19,7 +18,6 @@ export function ComboBox() {
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
-  { label: "The Shawshank Redemption"},
-  { label: "The Godfather"}
-
+  { label: "The Shawshank Redemption" },
+  { label: "The Godfather" },
 ];

@@ -18,7 +18,9 @@ const initialEmployees = [
 ];
 
 export const EmployeesProvider = ({ children }) => {
-  const [employees, setEmployees] = useLocalStorage("employees", []);
+  const [employees, setEmployees] = useLocalStorage("employees");
+  console.log(employees);
+
 
   // console.log(employees);
 
