@@ -82,7 +82,11 @@ export const Task = ({ element }) => {
             {element.assigned}
           </h4>
           <h4>
-            <Button variant="contained" onClick={() => setModal(!modal)}>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={() => setModal(!modal)}
+            >
               Edit
             </Button>
           </h4>
@@ -90,7 +94,7 @@ export const Task = ({ element }) => {
       )}
 
       <h4>
-        <Button variant="contained" onClick={DeleteTask}>
+        <Button variant="contained" color="error" size="small" onClick={DeleteTask}>
           Delete
         </Button>
       </h4>

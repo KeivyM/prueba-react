@@ -13,7 +13,9 @@ export const ListTasks = () => {
         <div className="container-list">
           <div className="container-titles">
             <h4>Done</h4>
+            <h5>|</h5>
             <h4>Task</h4>
+            <h5>|</h5>
             <h4>Assigned</h4>
           </div>
           {tasksLocal.map((element) => (

@@ -1,14 +1,37 @@
 .message-withoutTasks{
-  background-color: aquamarine;
-  width: 500px;
+  background-color: rgb(92, 196, 161);
+  font-size: 18px;
+  width: 30%;
   position: relative;
   margin: 0 auto;
   text-align: center;
-  line-height: 200px;
+  padding: 40px;
   border-radius: 30px;
 }
 
 .link-message{
-  background-color: aliceblue;
-  
+  background-color: transparent;
+}
+
+
+@media screen and (max-width:600px) {
+
+  .message-withoutTasks{
+  font-size: .9rem;
+  width: 40%;
+  display: block;
+  /* margin: 50px ; */
+  top: 70px;
+  position: relative;
+  /* float: none; */
+  }
+}
+
+
+@media screen and (max-width:400px) {
+  .message-withoutTasks{
+  font-size: .8rem;
+  width: 40%;
+
+  }
 }

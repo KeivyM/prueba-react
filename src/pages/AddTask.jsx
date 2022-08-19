@@ -61,7 +61,9 @@ export const AddTask = () => {
           Add
         </button>
       </form>
-      <SelectEmployee setEmployeeSelected={setEmployeeSelected} />
+      <div className="container-ListEmployees-addTasks">
+        <SelectEmployee setEmployeeSelected={setEmployeeSelected} />
+      </div>
     </div>
   );
 };
