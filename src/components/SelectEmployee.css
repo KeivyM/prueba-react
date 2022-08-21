@@ -1,35 +1,3 @@
 .container-selectEmployee {
-  /* background-color: rgb(200, 179, 179); */
   width: 100%;
-  /* text-align: center; */
-  /* padding: 0; */
 }
-
-/* .ol-container-selectEmployee {
-  background-color: rgb(148, 148, 148);
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 78%;
-  margin: 20px ;
-  overflow: auto;
-  max-height: 440px;
-  overflow: auto;
-  
-} */
-/* .container-selectEmployee ol li {
-  list-style-type: none;
-  background-color: bisque;
-  margin: 0 auto;
-  margin: 5px;
-  padding: 10px;
-  box-sizing: border-box;
-  width: 90%;
-  cursor: pointer;
-} */
-
-/* .container-selectEmployee ol li:hover {
-  background-color: rgb(223, 208, 190);
-  
-} */

@@ -51,12 +51,7 @@ export const AddTask = () => {
           onChange={onInputChange}
           required
         />
-        <h2
-          className="container-userSelected"
-          style={{ background: "white", width: "200px" }}
-        >
-          {employeeSelected}
-        </h2>
+        <h2 className="container-userSelected">{employeeSelected}</h2>
         <button className="button-form-addTask" type="submit">
           Add
         </button>

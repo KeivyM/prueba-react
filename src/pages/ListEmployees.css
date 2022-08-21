@@ -1,17 +1,17 @@
-.container-ListEmployees{
-  width: 75vw;
-  float: left;
+.container-ListEmployees {
+  max-width: 800px;
+  width: auto;
   box-sizing: border-box;
   position: relative;
-  /* margin: 0 auto; */
-  background-color: blue;
+  margin: 0 auto;
   max-height: 100vh;
   overflow: auto;
-
+  border: 1px solid rgb(0 0 0 / 55%);
+  border-radius: 3px;
 }
 
 @media screen and (max-width: 600px) {
-  .container-ListEmployees{
+  .container-ListEmployees {
     width: 100vw;
     float: none;
   }

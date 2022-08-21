@@ -49,55 +49,51 @@ export const Task = ({ element }) => {
 
   return (
     <div className="container-task">
-      <h4>
-        <Checkbox checked={element.done} onChange={ToggleTask} />
-      </h4>
       {modal ? (
         <>
-          <h4>
-            <form onSubmit={EditTask}>
-              <input
-                type="text"
-                placeholder="Task"
-                name="task"
-                value={formState.task}
-                onChange={onInputChange}
-                required
-              />
-            </form>
-          </h4>
+          <form onSubmit={EditTask}>
+            <input
+              className="input-edit-task"
+              type="text"
+              placeholder="Task"
+              name="task"
+              value={formState.task}
+              onChange={onInputChange}
+              required
+            />
+          </form>
           <h4>{element.assigned}</h4>
-          <h4>
-            <Button variant="contained" onClick={EditTask}>
-              Save
-            </Button>
-          </h4>
+          <Button variant="contained" size="small" onClick={EditTask}>
+            Save
+          </Button>
         </>
       ) : (
         <>
+          <Checkbox checked={element.done} onChange={ToggleTask} />
           <h4 className={`element-task ${element.done ? "through" : " "}`}>
             {element.task}
           </h4>
           <h4 className={`element-task ${element.done ? "through" : " "}`}>
             {element.assigned}
           </h4>
-          <h4>
-            <Button
-              variant="contained"
-              size="small"
-              onClick={() => setModal(!modal)}
-            >
-              Edit
-            </Button>
-          </h4>
+          <Button
+            variant="contained"
+            size="small"
+            onClick={() => setModal(!modal)}
+          >
+            Edit
+          </Button>
         </>
       )}
 
-      <h4>
-        <Button variant="contained" color="error" size="small" onClick={DeleteTask}>
-          Delete
-        </Button>
-      </h4>
+      <Button
+        variant="contained"
+        color="error"
+        size="small"
+        onClick={DeleteTask}
+      >
+        Delete
+      </Button>
     </div>
   );
 };
