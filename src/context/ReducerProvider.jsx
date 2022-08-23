@@ -9,7 +9,7 @@ export const ReducerProvider = ({ children }) => {
 
   useEffect(() => {
     setTasksLocal(tasks);
-  }, [tasks]);
+  }, [tasks, setTasksLocal]);
 
   return (
     <>
